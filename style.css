@@ -1,0 +1,15 @@
+.button {
+  background-color: #008cba; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  display: grid;
+  margin: auto;
+}
+
+body {
+  background-color: lightblue;
+}
