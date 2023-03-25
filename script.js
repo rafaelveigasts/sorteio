@@ -14,34 +14,25 @@ const compradores = [
   { nome: 'ROSANA VEIGA', numeros: [16, 37] },
   { nome: 'SANDRA MACHADO', numeros: [25, 50] },
   { nome: 'SEU CARLINHOS', numeros: [27, 34, 46, 49] },
-];
+]
+const button = document.querySelector('button')
+const numeros = [...Array(50)].map((_, i) => i + 1)
 
+/**
+ * Sorteia um número aleatório de 1 a 50 e busca entre os compradores quem tem um ou mais números iguais ao sorteado.
+ * Atualiza o texto do botão com o número sorteado e o nome do ganhador após um atraso de 3 segundos.
+ */
 function sortear(event) {
-  event.preventDefault();
+  event.preventDefault()
 
-  const button = document.querySelector('button');
-
-  const numeros = [];
-  for (let i = 0; i < 50; i++) {
-    numeros.push(i + 1);
-  }
-
-  const numerosSorteados = [];
-  for (let i = 0; i < 1; i++) {
-    const numeroSorteado = numeros.splice(
-      Math.floor(Math.random() * numeros.length),
-      1,
-    )[0];
-    numerosSorteados.push(numeroSorteado);
-  }
-
+  const numerosSorteados = [numeros[Math.floor(Math.random() * 50)]]
   const ganhador = compradores.find((comprador) =>
     comprador.numeros.some((numero) => numerosSorteados.includes(numero)),
-  );
+  )
 
   setTimeout(() => {
-    return (button.innerHTML = `O número sorteado foi ${numerosSorteados[0]} e o ganhador é ${ganhador.nome}`);
-  }, 3000);
+    button.innerHTML = `O número sorteado foi ${numerosSorteados[0]} e o ganhador é ${ganhador.nome}`
+  }, 3000)
 }
 
-module.exports = sortear;
+module.exports = sortear
